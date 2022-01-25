@@ -53,7 +53,7 @@ app.get('/', (req, res) => {
 // =======================================
 //                 ROUTES
 // =======================================
-// INDEX
+// INDEX 
 app.get('/cheese', async (req, res) => {
     try {
         res.json(await Cheese.find({}));
@@ -61,7 +61,7 @@ app.get('/cheese', async (req, res) => {
         res.status(400).json(error);
     }
 });
-// CREATE
+// CREATE 
 app.post('/cheese', async (req, res) => {
     try {
         res.json(await Cheese.create(req.body));
@@ -69,7 +69,7 @@ app.post('/cheese', async (req, res) => {
         res.json(400).json(error);   
     }
 });
-// UPDATE
+// UPDATE 
 app.put('/cheese/:id', async (req, res) => {
     try {
         res.json(await Cheese.findByIdAndUpdate(
@@ -80,7 +80,7 @@ app.put('/cheese/:id', async (req, res) => {
         res.json(400).json(error);
     }
 });
-// DELETE
+// DELETE 
 app.delete('/cheese/:id', async (req, res) => {
     try {
         res.json(await Cheese.findByIdAndDelete(req.params.id))
