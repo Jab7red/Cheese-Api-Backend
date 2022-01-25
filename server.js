@@ -29,6 +29,16 @@ db.on('connected', () => console.log('Connected to MongoDB'));
 db.on('disconnected', () => console.log('Disconnected from MongoDB'));
 db.on('error', (err) => console.log('MongoDB Error: ' + err.message));
 // =======================================
+//           SET UP PEOPLE MODEL
+// =======================================
+const cheeseSchema = new mongoose.Schema({
+    name: String,
+    countryOfOrigin: String,
+    image: String
+}, { timestamps: true });
+
+const Cheese = mongoose.model('Cheese', cheeseSchema);
+// =======================================
 //               MIDDLEWARE
 // =======================================
 app.use(express.json());
