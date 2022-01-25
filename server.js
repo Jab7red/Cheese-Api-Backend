@@ -69,6 +69,25 @@ app.post('/cheese', async (req, res) => {
         res.json(400).json(error);   
     }
 });
+// UPDATE
+app.put('/cheese/:id', async (req, res) => {
+    try {
+        res.json(await Cheese.findByIdAndUpdate(
+            req.params.id,
+            req.body,
+            { new: true} ));
+    } catch (error) {
+        res.json(400).json(error);
+    }
+});
+// DELETE
+app.delete('/cheese/:id', async (req, res) => {
+    try {
+        res.json(await Cheese.findByIdAndDelete(req.params.id))
+    } catch (error) {
+        res.json(400).json(error);
+    }
+});
 // =======================================
 //              APP LISTENER
 // =======================================
